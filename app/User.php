@@ -36,7 +36,7 @@ public function followings()
         return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'follow_id')->withTimestamps();
     }
 
-    public function followers()
+public function followers()
     {
         return $this->belongsToMany(User::class, 'user_follow', 'follow_id', 'user_id')->withTimestamps();
     }  
@@ -77,9 +77,30 @@ public function unfollow($userId)
   }
 
 
+public function favorite($userId)
+{
+    // confirm if already following
+    $exist = $this->is_favoriting($userId);
+    // confirming that it is not you
+    $its_me = $this->id == $userId;
+
+    if ($exist || $its_me) {
+        // do nothing if already following
+        return false;
+    } else {
+        // follow if not following
+        $this->favorites()->attach($userId);
+        return true;
+    }
+}
+
 public function is_following($userId) {
     return $this->followings()->where('follow_id', $userId)->exists();
 }    
+
+public function is_favoriting($userId) {
+    return $this->favorites()->where('favorite_id', $userId)->exists();
+} 
 
 
 public function feed_microposts()
