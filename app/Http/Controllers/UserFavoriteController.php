@@ -14,6 +14,8 @@ class UserFavoriteController extends Controller
 
     public function destroy($id)
     {
+        // var_dump('a');
+        // exit;
         \Auth::user()->unfavorite($id);
         return redirect()->back();
     }

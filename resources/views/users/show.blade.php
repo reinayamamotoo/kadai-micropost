@@ -1,4 +1,4 @@
-\@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
     <div class="row">
@@ -30,8 +30,8 @@
             @endif
             @if (count($microposts) > 0)
                 @include('microposts.microposts', ['microposts' => $microposts])
-                @include('user_favorite.favorite_button', ['user' => $user])
-            @endif
+            　
+            @endif　　
         </div>
     </div>
 @endsection
