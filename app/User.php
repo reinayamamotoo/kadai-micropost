@@ -90,7 +90,7 @@ public function favorite($userId)
     // confirming that it is not you
     $its_me = $this->id == $userId;
 
-    if ($exist || $its_me) {
+    if ($exist) {
         // do nothing if already following
         return false;
     } else {

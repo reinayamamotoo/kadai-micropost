@@ -6,5 +6,7 @@
     @else
         {!! Form::open(['route' => ['user.favorite', $micropost->id]]) !!}
             {!! Form::submit('❤', ['class' => "btn btn-warning btn-xs"]) !!}
+            
+            
         {!! Form::close() !!}
     @endif

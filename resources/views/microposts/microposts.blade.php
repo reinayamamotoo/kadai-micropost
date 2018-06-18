@@ -16,6 +16,8 @@
                 
                  <label class="button-inline">
                  @include('user_favorite.favorite_button', ['user' => $user])
+                 
+                 
                  </label>
                 <label class="button-inline">
                 @if (Auth::user()->id == $micropost->user_id)
